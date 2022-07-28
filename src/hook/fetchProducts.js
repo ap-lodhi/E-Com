@@ -8,7 +8,7 @@ export const useFetchProducts =(url)=>{
         data:[]
     });
  const {loading ,error,data} =products;
-    const getProds =(url)=>{
+    const getProds =(url, )=>{
         
             setProducts(prev =>({
                 ...prev,
@@ -16,7 +16,8 @@ export const useFetchProducts =(url)=>{
             }))
             axios({
                 method:"get",
-                url
+                url,
+              
             }).then(res => setProducts(prev =>({
                 ...prev,
                 loading:false,
@@ -34,7 +35,7 @@ export const useFetchProducts =(url)=>{
     useEffect(()=>{
         getProds(url)
     },[])
-   return {loading ,error,data}
+   return {loading ,error,data, }
 }
 
 

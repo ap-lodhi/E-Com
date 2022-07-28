@@ -70,6 +70,33 @@ const toggleDrawer = ( open) => {
 
           </Link> }
       </List>
+      <List>
+       <Link  to="/grocery">
+          <ListItem  disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                 <InboxIcon />
+              </ListItemIcon>
+              <ListItemText primary={"GROCERY"} />
+            </ListItemButton>
+          </ListItem>
+          </Link>
+      
+      </List>
+      <List>
+       <Link  to="/pharmacy">
+          <ListItem  disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                 <InboxIcon />
+              </ListItemIcon>
+              <ListItemText primary={"PHARMACY"} />
+            </ListItemButton>
+          </ListItem>
+          </Link>
+      
+      </List>
+      
     </Box>
   );
 
