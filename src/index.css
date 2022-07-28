@@ -11,3 +11,46 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+a{
+  text-decoration: none;
+  color: inherit;
+}
+.flex-between {
+  display: flex;
+  justify-content: space-around;
+
+}
+
+.rating_card{
+  background-color: skyblue;
+  color: brown;
+  padding: 8px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.rating-card >svg{
+  color: yallow;
+}
+.price_card{
+  background-color: green;
+  color: white;
+  padding: 8px;
+  border-radius: 5px;
+}
+
+.card_container{
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+  
+}
+.btnsFlex_Pagination{
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+  
+
+}
