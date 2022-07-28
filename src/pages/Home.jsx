@@ -24,7 +24,7 @@ const handleSort =(value)=>{
     setLoad(true);
     axios({
       method: "get",
-      url: `http://localhost:8000/products?_page=${page}&_limit=12&_sort=price&_order=${value}`
+      url: `http://localhost:8000/products?_page=${page}&_limit=12&_sort=rating&_order=${value}`
     }).then((res) => {
       setProducts(res.data);
       setLoad(false);
@@ -36,6 +36,23 @@ const handleSort =(value)=>{
     })
   }
   
+  const handleRating =(value)=>{
+    console.log(value,"vaa");
+    setSort(value);
+    setLoad(true);
+    axios({
+      method: "get",
+      url: `http://localhost:8000/products?_page=${page}&_limit=12&_sort=rating&_order=${value}`
+    }).then((res) => {
+      setProducts(res.data);
+      setLoad(false);
+      console.log(res.data)
+    }).catch((err) => {
+      console.log(err);
+      setLoad(false)
+      setErro(true);
+    })
+  }
 
 
 
@@ -76,10 +93,26 @@ const handleSort =(value)=>{
                 onChange={(e) => {handleSort(e.target.value)}}
               >
                 <MenuItem value={""}>No Sorting</MenuItem>
-                <MenuItem value={"asc"}>High To Low</MenuItem>
-                <MenuItem value={"desc"}>Low To High</MenuItem>
+                <MenuItem value={"asc"}>Low To High</MenuItem>
+                <MenuItem value={"desc"}>High to low</MenuItem>
               </Select>
             </FormControl>
+
+            <FormControl halfWidth>
+              <InputLabel id="demo-simple-select-label">Sort By Rating</InputLabel>
+              <br />
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                value={sort}
+                label="Age"
+                onChange={(e) => {handleRating(e.target.value)}}
+              >
+                <MenuItem value={""}>No Sorting</MenuItem>
+                <MenuItem value={"asc"}>Low To High</MenuItem>
+                <MenuItem value={"desc"}>High to low</MenuItem>
+              </Select>
+            </FormControl> 
 
 
                          <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: "20px", padding: "20px" }}>
