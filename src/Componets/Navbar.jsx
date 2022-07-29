@@ -53,22 +53,7 @@ const toggleDrawer = ( open) => {
       <Divider />
       <List>
 
-          {token ?    <ListItem  disablePadding>
-            <ListItemButton onClick={handleLogout}>
-              <ListItemIcon>
-                 <MailIcon />
-              </ListItemIcon>
-              <ListItemText primary={"Log Out"} />
-            </ListItemButton>
-          </ListItem> :<Link to="/login">
-          <ListItemButton>
-              <ListItemIcon>
-                 <MailIcon />
-              </ListItemIcon>
-              <ListItemText primary={"Log In"} />
-            </ListItemButton>
-
-          </Link> }
+         
       </List>
       <List>
        <Link  to="/grocery">
@@ -96,6 +81,22 @@ const toggleDrawer = ( open) => {
           </Link>
       
       </List>
+      {token ?    <ListItem  disablePadding>
+            <ListItemButton onClick={handleLogout}>
+              <ListItemIcon>
+                 <MailIcon />
+              </ListItemIcon>
+              <ListItemText primary={"Log Out"} />
+            </ListItemButton>
+          </ListItem> :<Link to="/login">
+          <ListItemButton>
+              <ListItemIcon>
+                 <MailIcon />
+              </ListItemIcon>
+              <ListItemText primary={"Log In"} />
+            </ListItemButton>
+
+          </Link> }
       
     </Box>
   );

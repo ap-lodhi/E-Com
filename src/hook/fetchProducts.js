@@ -1,15 +1,21 @@
 import axios from "axios";
 import { useEffect, useState } from "react"
 
-export const useFetchProducts =(url)=>{
+export const useFetchProducts =(url ,page ,sort)=>{
        const [products,setProducts] =useState({
         loading:false,
         error:false,
         data:[]
     });
  const {loading ,error,data} =products;
-    const getProds =(url, )=>{
-        
+    const getProds =(url,page,sort )=>{
+        const paramObj ={
+            _page:page
+        }
+        if(sort){
+            paramObj._sort="price";
+             paramObj._order=sort
+        }
             setProducts(prev =>({
                 ...prev,
                 loading:true
@@ -17,6 +23,9 @@ export const useFetchProducts =(url)=>{
             axios({
                 method:"get",
                 url,
+                params:paramObj
+                   
+                
               
             }).then(res => setProducts(prev =>({
                 ...prev,
@@ -24,7 +33,7 @@ export const useFetchProducts =(url)=>{
                 error:false,
                 data:res.data
             })))
-            .catch(err =>(prev =>({
+            .catch(err =>setProducts(prev =>({
                 ...prev,
                 loading:false,
                 error:true
@@ -33,8 +42,8 @@ export const useFetchProducts =(url)=>{
         
     }
     useEffect(()=>{
-        getProds(url)
-    },[])
+        getProds(url,page,sort)
+    },[page,sort])
    return {loading ,error,data, }
 }
 
