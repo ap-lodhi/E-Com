@@ -1100,5 +1100,12 @@
           "hex": "#0bf227",
           "imageBase": "https://via.placeholder.com/500"
       }
-  ]
+  ],
+  "user":{
+    "name":"Anil",
+    "age": 24 ,
+    "addrress":"ratna giri bhopal",
+    "cartItems":[]
+
+  }
 }

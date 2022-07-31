@@ -5,13 +5,13 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import StarRateIcon from '@mui/icons-material/StarRate';
 import Box from '@mui/material/Box';
 import StarRate from '@mui/icons-material/StarRate';
+import { Link } from 'react-router-dom';
 
 
 
-export const MediaCard =({title , imageBase ,hex ,color,rating,price}) => {
+export const MediaCard =({title , imageBase ,hex ,color,rating,price,id}) => {
   return (
     <Card sx={{ Width: 500 }}>
       <CardMedia
@@ -36,7 +36,9 @@ export const MediaCard =({title , imageBase ,hex ,color,rating,price}) => {
        
       </CardContent>
       <CardActions>
+        <Link to={`/product/${id}`}>
         <Button size="small">view</Button>
+        </Link>
       </CardActions>
     </Card>
   );
